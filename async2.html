@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <script>
+        function greet(name,callback){
+            
+            document.getElementById('d3').innerHTML='<button onclick="callme()">clickme</button>'
+            document.getElementById('d1').innerHTML=('HI'+" "+name)
+        }
+        function callme(){
+            document.getElementById('d3').innerHTML='<button onclick="callback()">clickme</button>'
+            document.getElementById('d2').innerHTML=("i am callback func")
+        }
+setTimeout(greet,2000) //output is undefined if button not clicked within 2 secs
+        greet('sejal', callme)
+    </script>
+</body>
+</html>

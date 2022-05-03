@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frogcode</title>
+</head>
+<body>
+    <!--
+ <p>
+ Wikipedia has been criticized for its uneven accuracy and for exhibiting systemic bias, including gender bias, with the majority of editors being male.[4] Edit-a-thons have been held to encourage female editors and increase the coverage of women's topics.[10] In 2006, Time magazine stated that the open-door policy of allowing anyone to edit had made Wikipedia the biggest and possibly the best encyclopedia in the world, and was a testament to the vision of Jimmy Wales.[11] The project's reputation improved further in the 2010s as it increased efforts to improve its quality and reliability, based on its unique structure, curation and absence of commercial bias.[4] In 2018, Facebook and YouTube announced that they would help users detect fake news by suggesting links to related Wikipedia articles
+ </p>
+ -->
+ <p id="demo"> </p>
+ <p id="demo1"> </p>
+ <p id= "demo2"> </p>
+ <p id= "demo3"> </p>
+ <p id= "demo4"> </p>
+ <p id= "demo5"> </p>
+ <p id= "demo6"> </p>
+ <p id= "demo7"> </p>
+ <p id= "demo8"> </p>
+ <p id= "demo9"> </p>
+ <p id= "demo10"> </p>
+ <p id= "demo11"> </p>
+ <p id="image"> </p>
+    <script>
+        function getFrogsWithVitalSigns(params, callback) {
+   let frogIds, frogsListWithVitalSignsData
+
+   api
+     .fetchFrogs(params)
+   .then((frogs) => {
+      frogIds = frogs.map(({ id }) => id)
+      // The list of frogs did not include their health information,
+ //so lets fetch that now
+       return api.fetchFrogsVitalSigns(frogIds)     })
+     .then((frogsListWithEncryptedVitalSigns) => {
+       // The list of frogs health info is encrypted. Our friend texted
+ //us the secret key to use in this step. This is used to decrypt the
+ //list of frogs encrypted health information
+       return api.decryptFrogsListVitalSigns(
+         frogsListWithEncryptedVitalSigns,
+        'pepsi',
+       )
+    })
+     .then((data) => {
+       if (Array.isArray(data)) {
+        frogsListWithVitalSignsData = data
+      } else {
+         frogsListWithVitalSignsData = data.map(
+           ({ vital_signs }) => vital_signs,
+         )
+         console.log(frogsListWithVitalSignsData)
+       }
+     })
+     .catch((error) => {
+       console.error(error)
+     })
+ 
+ }
+
+ const frogsWithVitalSigns = getFrogsWithVitalSigns({
+   offset: 50,
+ })
+   .then((result) => {
+    console.log(result)
+   })
+   .catch((error) => {
+     console.error(error)
+   })
+
+// On Mon, Apr 4, 2022 at 12:38 PM Praveen Hegde <prvn.hegde@gmail.com> wrote:
+
+ const fs = require('fs')
+ fs.readFile('/file.json', (err, data) => {
+   if (err) {
+     //handle error
+     console.log(err)
+     return
+   }
+
+   //no errors, process data
+   console.log(data)
+ })
+
+// On Thu, Mar 31, 2022 at 10:21 AM Sejal Gujar <s.gujar@zensar.com> wrote:
+
+ 
+
+ 
+ function dfunction() {
+ document.getElementById("demo").innerHTML=Date()
+ document.getElementById("demo").style.fontsize="40px"
+ document.getElementById("demo").style.fontfamily="verdana"
+ }
+ function sfunction() {
+ document.getElementById("demo1").innerHTML="Welcome"
+ document.getElementById("demo1").style.color="red"
+ }
+
+
+//new addition
+//var str1="Wikipedia has been criticized for its uneven# accuracy akkuracy ekkuracy and for exhibiting systemic bias, including gender bias, with the majority of editors being male.[4] Edit-a-thons have been held to encourage female editors and increase the coverage of women's topics.[10] In 2006, Time magazine stated that the open-door policy of allowing anyone to edit had made Wikipedia the biggest and possibly the best encyclopedia in the world, and was a testament to the vision of Jimmy Wales.[11] The project's reputation improved further in the 2010s as it increased efforts to improve its quality and reliability, based on its unique structure, curation and absence of commercial bias.[4] In 2018, Facebook and YouTube announced that they would help users detect fake news by suggesting links to related Wikipedia articles"
+
+function para(){
+    document.getElementById("demo2").innerHTML=str1
+}
+
+
+
+ try {
+    var str1="Wikipedia has been criticized for its uneven# accuracy akkuracy ekkuracy and for exhibiting systemic bias, including gender bias, with the majority of editors being male.[4] Edit-a-thons have been held to encourage female editors and increase the coverage of women's topics.[10] In 2006, Time magazine stated that the open-door policy of allowing anyone to edit had made Wikipedia the biggest and possibly the best encyclopedia in the world, and was a testament to the vision of Jimmy Wales.[11] The project's reputation improved further in the 2010s as it increased efforts to improve its quality and reliability, based on its unique structure, curation and absence of commercial bias.[4] In 2018, Facebook and YouTube announced that they would help users detect fake news by suggesting links to related Wikipedia articles"
+ var count=str1.search(/criticized/gi);
+ document.getElementById("demo2").innerHTML=count;
+ var repl =str1.replace(/criticized/i, "appreciated");
+ document.getElementById("demo3").innerHTML=repl;
+ var mat1=str1.match(/[a|e][c|k][c|k]uracy/gi);
+ var mat2 =str1.match(/\u0023/g);
+
+ var password =prompt("enter password");
+ //var tst1=str1.test(/[a|e][c|k][c|k]uracy/);
+ document.getElementById("demo4").innerHTML=mat1[0];
+ document.getElementById("demo6").innerHTML=mat1[1];
+ document.getElementById("demo5").innerHTML=mat1.length;
+ document.getElementById("demo7").innerHTML="test";
+ document.getElementById("demo7").innerHTML=str1.test(/accuracy/);
+ document.getElementById("demo8").innerHTML=mat2.length;
+ document.getElementById("demo9").innerHTML=mat2[0];
+ }
+
+ catch (err) {
+
+ document.getElementById("demo10").innerHTML=err.name;
+ }
+ finally {
+ document.getElementById("demo11").innerHTML="This system is dead retsart";
+ }
+ </script>
+
+ <button type="submit" onclick="sfunction()">
+ Click Here </button>
+ <button type="submit" onclick="dfunction()">
+ Click Date </button>
+
+ <button type="submit" onclick=para()>Click Here</button>
+
+ 
+
+ </script>
+
+
+
+
+ </html>
+ 

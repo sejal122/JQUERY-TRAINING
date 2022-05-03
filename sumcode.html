@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum code</title>
+</head>
+<body>
+    <script>
+        const add = (num1, num2) => new Promise((resolve) => resolve(num1 + num2))
+
+add(2, 4)
+  .then((result) => {
+    console.log(result) // result: 6
+    return result + 10
+  })
+  .then((result) => {
+    console.log(result) // result: 16
+    return result
+  })
+  .then((result) => {
+    //console.log(result) // result: 16
+    console.log(add(5,6)) // promise:fullfilled ans=11
+  })
+.then((result) => {
+    console.log(add(6,"kk"))
+})
+    </script>
+</body>
+</html>

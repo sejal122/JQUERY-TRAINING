@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallel activities</title>
+</head>
+<body>
+    <p id="d1"></p>
+    <script>
+        function disp(text){
+//document.getElementById('d1').innerHTML=text;
+document.write(text)
+        }
+
+        function func2(){
+            disp("hello")
+            let btn=document.createElement('button');
+            btn.innerHTML="clickme"
+            document.body.appendChild(btn)
+            btn.onclick=function(){
+                disp('from button')
+            }
+        }
+       
+        func2;
+       // func3();
+    </script>
+</body>
+</html>

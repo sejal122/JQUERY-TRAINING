@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frog-correct code</title>
+</head>
+<body>
+    <script>
+         const p1 = new Promise(function(resolve,reject){
+            function getFrogsWithVitalSigns(params, callback) {
+  let frogIds, frogsListWithVitalSignsData,api
+ 
+  api
+  //fetchFrogs(params) //it was .fetchFrogs(params)...earlier
+    p1.then((frogs) => {
+      frogIds = frogs.map(({ id }) => id)
+      // The list of frogs did not include their health information,
+//so lets fetch that now
+      return api.fetchFrogsVitalSigns(frogIds)
+    })
+    p1.then((frogsListWithEncryptedVitalSigns) => {
+      // The list of frogs health info is encrypted. Our friend texted
+//us the secret key to use in this step. This is used to decrypt the
+//list of frogs encrypted health information
+      return api.decryptFrogsListVitalSigns(
+        frogsListWithEncryptedVitalSigns,
+        'pepsi',
+      )
+    })
+    p1.then((data) => {
+      if (Array.isArray(data)) {
+        frogsListWithVitalSignsData = data
+      } else {
+        frogsListWithVitalSignsData = data.map(
+          ({ vital_signs }) => vital_signs,
+        )
+        console.log(frogsListWithVitalSignsData)
+      }
+    })
+    p1.catch((error) => {
+      console.error(error)
+    })
+  
+}
+
+const frogsWithVitalSigns = getFrogsWithVitalSigns({
+  offset: 50,
+})
+ 
+    
+})
+p1.then((result) => {
+    console.log(result)
+  })
+  p1.catch((error) => {
+    console.error(error)
+  })
+/*p1.then(function(value){
+    getFrogsWithVitalSigns(value);
+        },function(error){
+            getFrogsWithVitalSigns(error)
+        });*/
+    </script>
+</body>
+</html>

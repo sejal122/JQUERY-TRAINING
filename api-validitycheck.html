@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validity check</title>
+</head>
+<body>
+    <input id="inp" type="number" min="50" max="200" required>
+    <button id="valid" onclick="validate()">check</button>
+    <p id="d1"></p>
+    <script>
+        function validate(){
+            const disp=document.getElementById('inp');
+            if(! disp.checkValidity()){
+                document.getElementById('d1').innerHTML=disp.validationMessage;
+                
+            }else{
+                document.getElementById('d1').innerHTML="ok"
+            }
+        }
+    </script>
+</body>
+</html>

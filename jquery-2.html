@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn2').click(function(){
+                $('#d1').hide();
+            })
+
+            $('#btn').click(function(){
+                $('#d1').show()
+
+            });
+            $('#height').click(function(){
+                $('#d1').height(400)
+
+            });
+            $('#height2').click(function(){
+                $('#d1').height(200)
+
+            });
+            $('#toggle').click(function(){
+                $('h1').toggle();
+
+            });
+          
+            $('#ani').click(function(){
+                //$('h1').toggle();
+                $('h1').animate({
+                    fontSize:'7rem'
+                },"swing");
+
+            });
+            $('#toggle').click(function(){
+$('#d2').toggle()
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <p id="d1" style="background-color: red; height: 100px;">click to hide</p>
+    <h2 id="d2">Toggle me</h2>
+    <h1>HELLO WORLD</h1>
+    <button id="btn">show</button>
+    <button id="btn2">hide</button>
+    <button id="height">increase height</button>
+    <button id="height2">decrease height</button>
+    <button id="toggle">toogle</button>
+    <button id="ani">animate</button>
+</body>
+</html>
